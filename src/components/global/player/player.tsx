@@ -10,7 +10,6 @@ const Player = () => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const playerContainerRef = useRef<HTMLDivElement>(null);
     const [isPlayed, setIsPlayed] = useState(false);
-    const [miniPlayer, setMiniPlayer] = useState(false);
     const [fullScreenPlayer, setFullScreenPlayer] = useState(false);
 
     const togglePlay = () => {
@@ -24,7 +23,10 @@ const Player = () => {
     };
 
     const toggleFullScreen = () => {
-        if (document.fullscreenElement == null && fullScreenPlayer)
+        if (
+            document.fullscreenElement == null &&
+            document.pictureInPictureElement == null
+        )
             playerContainerRef.current?.requestFullscreen();
         else document.exitFullscreen();
         setFullScreenPlayer(!fullScreenPlayer);
@@ -72,8 +74,14 @@ const Player = () => {
                     className="play-btn"
                     onClick={togglePlay}
                     sx={{
-                        height: "80px",
-                        width: "80px",
+                        height: {
+                            xs: "60px",
+                            sm: "80px",
+                        },
+                        width: {
+                            xs: "60px",
+                            sm: "80px",
+                        },
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -86,7 +94,18 @@ const Player = () => {
                         opacity: 0,
                     }}
                 >
-                    <Play sx={{ width: "40px", height: "40px" }} />
+                    <Play
+                        sx={{
+                            width: {
+                                xs: "30px",
+                                sm: "40px",
+                            },
+                            height: {
+                                xs: "30px",
+                                sm: "40px",
+                            },
+                        }}
+                    />
                 </Box>
                 <Box
                     sx={{
