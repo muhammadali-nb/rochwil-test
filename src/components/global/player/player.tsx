@@ -10,7 +10,8 @@ const Player = () => {
     const playerRef = useRef<HTMLVideoElement>(null);
     const playerContainerRef = useRef<HTMLDivElement>(null);
     const [isPlayed, setIsPlayed] = useState(false);
-    // const [miniPlayer, setMiniPlayer] = useState(true);
+    const [miniPlayer, setMiniPlayer] = useState(false);
+    const [fullScreenPlayer, setFullScreenPlayer] = useState(false);
 
     const togglePlay = () => {
         if (isPlayed) playerRef.current?.pause();
@@ -19,13 +20,16 @@ const Player = () => {
     };
 
     const toggleMiniPlayer = () => {
-        playerRef.current?.requestPictureInPicture();
+        if (miniPlayer) playerRef.current?.requestPictureInPicture();
+        else return;
+        setMiniPlayer(!miniPlayer);
     };
 
     const toggleFullScreen = () => {
-        if (document.fullscreenElement == null)
+        if (document.fullscreenElement == null && fullScreenPlayer)
             playerContainerRef.current?.requestFullscreen();
         else document.exitFullscreen();
+        setFullScreenPlayer(!fullScreenPlayer);
     };
 
     return (
