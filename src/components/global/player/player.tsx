@@ -21,7 +21,6 @@ const Player = () => {
 
     const toggleMiniPlayer = () => {
         if (miniPlayer) playerRef.current?.requestPictureInPicture();
-        else return;
         setMiniPlayer(!miniPlayer);
     };
 
