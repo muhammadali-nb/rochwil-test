@@ -7,11 +7,14 @@ const HomeLayout = ({ children }: { children: ReactNode }) => {
         <Box>
             <Box
                 sx={{
-                    px: "28px",
-                    py: "32px",
+                    px: { xs: "16px", sm: "24px" },
+                    py: {
+                        sm: "34px",
+                        xs: "20px",
+                    },
                 }}
             >
-                <Logo/>
+                <Logo />
                 <Box
                     sx={{
                         pt: "16px",
