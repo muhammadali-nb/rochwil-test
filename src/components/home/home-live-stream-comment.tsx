@@ -3,7 +3,7 @@ import user from "../../assets/images/user.png";
 import { useState } from "react";
 
 const user_comment: string =
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe asperiores magni cum distinctio officiis incidunt fuga harum iste voluptatibus, nam in repellat officia est obcaecati ea aliquam eveniet? Distinctio, vitae.";
+    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe asperiores magni cum distinctio officiis incidunt fuga harum iste voluptatibus, nam in repellat officia est obcaecati ea aliquam eveniet? Distinctio, vitae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam expedita, mollitia neque, sit pariatur, nemo voluptatem nobis veniam officia eveniet eligendi illo obcaecati quis vitae quidem facilis consequuntur sapiente in. Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio velit esse soluta facere? Aliquam voluptate, animi laborum, nostrum dolore nisi facilis, fuga officia sapiente temporibus reiciendis optio aliquid ea magni.";
 
 export const HomeLiveStreamComment = () => {
     const [unwrapText, setUnwrapText] = useState(false);
