@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box } from "@mui/material";
 import { MiniPlayer } from "../../../icons/mini-player";
 import { FullScreenPayer } from "../../../icons/full-screen-player";
@@ -11,6 +11,7 @@ const Player = () => {
     const playerContainerRef = useRef<HTMLDivElement>(null);
     const [isPlayed, setIsPlayed] = useState(false);
     const [fullScreenPlayer, setFullScreenPlayer] = useState(false);
+    const [miniPlayer, setMiniPlayer] = useState(false);
 
     const togglePlay = () => {
         if (isPlayed) playerRef.current?.pause();
@@ -19,7 +20,13 @@ const Player = () => {
     };
 
     const toggleMiniPlayer = () => {
-        playerRef.current?.requestPictureInPicture();
+        if (
+            document.fullscreenElement == null &&
+            document.pictureInPictureElement == null
+        )
+            playerRef.current?.requestPictureInPicture();
+        else document.exitPictureInPicture();
+        setMiniPlayer(!miniPlayer);
     };
 
     const toggleFullScreen = () => {
