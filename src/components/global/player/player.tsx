@@ -66,7 +66,10 @@ const Player = () => {
                 <video
                     style={{
                         width: "100%",
-                        height: "100%",
+                        height:
+                            document.fullscreenElement == null
+                                ? "100%"
+                                : "auto",
                         objectFit: "cover",
                         position: "relative",
                     }}
