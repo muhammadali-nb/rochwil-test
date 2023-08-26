@@ -20,8 +20,7 @@ const Player = () => {
     };
 
     const toggleMiniPlayer = () => {
-        if (miniPlayer) playerRef.current?.requestPictureInPicture();
-        setMiniPlayer(!miniPlayer);
+        playerRef.current?.requestPictureInPicture();
     };
 
     const toggleFullScreen = () => {
