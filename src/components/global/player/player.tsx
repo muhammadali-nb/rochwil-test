@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 import { Box } from "@mui/material";
 import { MiniPlayer } from "../../../icons/mini-player";
 import { FullScreenPayer } from "../../../icons/full-screen-player";
