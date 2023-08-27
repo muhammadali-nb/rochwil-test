@@ -5,6 +5,7 @@ import { FullScreenPayer } from "../../../icons/full-screen-player";
 import ControlesButtons from "./controles-buttons";
 import video from "../../../assets/video/timer.mp4";
 import { Play } from "../../../icons/play";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const Player = () => {
     const playerRef = useRef<HTMLVideoElement>(null);
@@ -12,6 +13,13 @@ const Player = () => {
     const [isPlayed, setIsPlayed] = useState(false);
     const [fullScreenPlayer, setFullScreenPlayer] = useState(false);
     const [miniPlayer, setMiniPlayer] = useState(false);
+
+    useHotkeys("space", () => togglePlay());
+    useHotkeys("f", () => toggleFullScreen());
+    useHotkeys("i", () => toggleMiniPlayer());
+    useHotkeys("esc", () => {
+        if (fullScreenPlayer) setFullScreenPlayer(false);
+    });
 
     const togglePlay = () => {
         if (isPlayed) playerRef.current?.pause();
