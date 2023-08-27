@@ -31,8 +31,6 @@ const Player = () => {
     };
 
     const toggleFullScreen = () => {
-        if (miniPlayer) return;
-
         if (
             document.fullscreenElement == null &&
             document.pictureInPictureElement == null
