@@ -1,4 +1,4 @@
-import {  useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Box } from "@mui/material";
 import { MiniPlayer } from "../../../icons/mini-player";
 import { FullScreenPayer } from "../../../icons/full-screen-player";
@@ -20,6 +20,7 @@ const Player = () => {
     };
 
     const toggleMiniPlayer = () => {
+        if (fullScreenPlayer) return;
         if (
             document.fullscreenElement == null &&
             document.pictureInPictureElement == null
@@ -30,6 +31,8 @@ const Player = () => {
     };
 
     const toggleFullScreen = () => {
+        if (miniPlayer) return;
+
         if (
             document.fullscreenElement == null &&
             document.pictureInPictureElement == null
@@ -53,6 +56,8 @@ const Player = () => {
                 sx={{
                     width: "100%",
                     height: "100%",
+                    display: "flex",
+                    alignItems: "center",
                     position: "relative",
                     "&:hover .play-btn ": {
                         opacity: isPlayed ? 0 : 1,
@@ -66,10 +71,7 @@ const Player = () => {
                 <video
                     style={{
                         width: "100%",
-                        height:
-                            document.fullscreenElement == null
-                                ? "100%"
-                                : "auto",
+                        height: !fullScreenPlayer ? "100%" : "auto",
                         objectFit: "cover",
                         position: "relative",
                     }}
